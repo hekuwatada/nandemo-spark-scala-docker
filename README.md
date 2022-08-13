@@ -1,4 +1,4 @@
-# Templates and examples of Spark project
+# Templates and examples of Spark 3.2.x
 
 ## Setup for IntelliJ user
 1. Install Java SDK 17
