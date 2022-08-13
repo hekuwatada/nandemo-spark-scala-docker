@@ -4,6 +4,9 @@ SHELL := /bin/bash
 
 DOCKER_IMAGE_TAG = 'spark-scala'
 
+##############################
+# Docker
+##############################
 # build Docker image
 .PHONY: docker/build
 docker/build:
@@ -18,4 +21,15 @@ docker/run:
 	@echo "\n== docker/run\n"
 	docker run -it --rm --mount src="$$(pwd)",target=/workspaces,type=bind -p 4040:4040 $(DOCKER_IMAGE_TAG) /bin/bash
 
-#  export PATH=${PATH}:/opt/spark/bin
+
+##############################
+# Dev utilities
+##############################
+# create the project structure
+.PHONY: dev/create
+dev/create:
+	@echo "\n== dev/create\n"
+	mkdir -p src/{main,test}/scala/org/nandemo
+	mkdir -p src/{main,test}/resources
+	mkdir -p project
+	touch build.sbt
